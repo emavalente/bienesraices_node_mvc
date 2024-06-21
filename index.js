@@ -8,10 +8,14 @@ const app = express();
 // Conexión a la base de datos.
 try {
   await db.authenticate();
+  db.sync();
   console.log("Conexión Correcta a Base de datos");
 } catch (error) {
   console.log(error);
 }
+
+// Habilitar lectura de datos de formularios.
+app.use(express.urlencoded({ extended: true }));
 
 // Declaración de puerto a utilizar.
 const PORT = 3000;

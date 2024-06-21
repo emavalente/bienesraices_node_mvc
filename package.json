@@ -6,13 +6,14 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node --watch index.js",
+    "server": "node --watch --env-file=.env index.js",
     "css": "postcss public/css/tailwind.css -o public/css/app.css --watch"
   },
   "author": "Emanuel Valente",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
+    "express-validator": "^7.1.0",
     "mysql2": "^3.10.1",
     "pug": "^3.0.3",
     "sequelize": "^6.37.3"
