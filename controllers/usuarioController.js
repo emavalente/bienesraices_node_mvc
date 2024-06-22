@@ -54,7 +54,29 @@ const registerUser = async (req, res) => {
       },
     });
   }
-  const usuario = await Usuario.create(req.body);
+
+  // Verificar que el usuario no esté duplicado.
+  const exist = await Usuario.findOne({ where: { email: req.body.email } });
+
+  if (exist) {
+    return res.render("auth/register", {
+      pagina: "Crear Cuenta",
+      errores: [{ msg: "Este usuario ya fue registrado." }],
+      usuario: {
+        nombre: req.body.nombre,
+        email: req.body.email,
+      },
+    });
+  }
+
+  console.log(req.body);
+  // Crear Usuario.
+  await Usuario.create({
+    nombre: req.body.nombre,
+    email: req.body.email,
+    password: req.body.password,
+    token: 123,
+  });
 };
 
 const formularioForgetPassword = (req, res) => {
