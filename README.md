@@ -1,6 +1,6 @@
 # Bienes Raices Node.js+MVC
 Este proyecto es parte del curso de Node.js del profesor 
-Juan de la Torre Valdez en Udemy. Realizado utilizando 
+Juan de la Torre Valdez en Udemy. Realizado con 
 Sequelise como ORM para la base de datos SQL y arquitectura MVC 
 utilizando PUG para la generación de vistas.
 
